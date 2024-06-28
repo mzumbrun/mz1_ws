@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<robot name="mzbot1" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <link name="base_footprint"/>
+
+    <link name="base_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://mz_models/meshes/base_link.STL"/>
+            </geometry>
+            
+        </visual>
+    </link>
+
+    <joint name="based_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.033" rpy="0.0 0.0 0.0"/>
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+</robot>    
