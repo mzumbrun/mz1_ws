@@ -30,7 +30,8 @@ setup(
             "led_panel = mz_py_pkg.led_panel:main",
             "battery = mz_py_pkg.battery:main",
             "number_counter = mz_py_pkg.number_counter:main",
-            "number_publisher = mz_py_pkg.number_publisher:main"
+            "number_publisher = mz_py_pkg.number_publisher:main",
+            "simple_parameter = mz_py_pkg.simple_parameter:main"
         ],      
     },
 )

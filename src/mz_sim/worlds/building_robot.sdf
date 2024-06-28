@@ -114,10 +114,17 @@
                 </inertial> 
                 <visual name='visual'>
                     <geometry>
+                        <mesh>
+                            <scale>10 10 10 </scale>
+                        <uri>/home/mikez/mz1_ws/src/mz_models/meshes/wheel_right_link.STL
+                        </uri>
+                        </mesh>
+                      <!--  
                         <box>
                             <size>2.0 1.0 0.5</size>
-                        </box>
-                    </geometry>
+                        </box> 
+                        -->
+                    </geometry> 
                     <!--let's add color to our link-->
                     <material>
                         <ambient>0.0 0.0 1.0 1</ambient>
