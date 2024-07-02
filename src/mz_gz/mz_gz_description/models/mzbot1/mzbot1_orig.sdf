@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<sdf version="1.11">
+  <model name='mzbot1'>
+    <link name='base_footprint'>
+      <inertial>
+        <pose>0 0 0.073000000000000009 0 0 0</pose>
+        <mass>0.82573503999999998</mass>
+        <inertia>
+          <ixx>0.02215518651246412</ixx>
+          <ixy>0.00016590283132572001</ixy>
+          <ixz>-0.00017350148241549219</ixz>
+          <iyy>0.021204338109186711</iyy>
+          <iyz>-7.2665357781141637e-05</iyz>
+          <izz>0.020022864378349169</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+        <pose>0 0 0.033000000000000002 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>package://mz_gz_description/models/diff_drive/wheel_right_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_footprint_fixed_joint_lump__base_link_visual'>
+        <pose>0 0 0.033000000000000002 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>package://mz_gz_description/models/diff_drive/wheel_right_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='wheel_right_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0 -0.070110184941863704 0.033000000000000002 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>wheel_right_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='wheel_right_link'>
+      <pose relative_to='wheel_right_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 -0.014 0 0 0 0</pose>
+        <mass>0.053008609096672099</mass>
+        <inertia>
+          <ixx>1.88176298336665e-05</ixx>
+          <ixy>-4.8444933029986996e-10</ixy>
+          <ixz>1.8816370885114301e-08</ixz>
+          <iyy>3.1151073864776397e-05</iyy>
+          <iyz>-6.93560663069607e-11</iyz>
+          <izz>1.8801969558181999e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='wheel_right_link_collision'>
+        <pose>0 -0.014999999999999999 0 1.5700000000000001 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.033000000000000002</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000000000000</kp>
+              <kd>10</kd>
+              <max_vel>0.10000000000000001</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1000000000000000</mu>
+              <mu2>1000000000000000</mu2>
+              <fdir1>1 0 0</fdir1>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='wheel_right_link_visual'>
+        <pose>0 0 0 1.5700000000000001 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>package://mz_gz_description/models/diff_drive/wheel_right_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <frame name='based_joint' attached_to='base_footprint'>
+      <pose>0 0 0.033000000000000002 0 0 0</pose>
+    </frame>
+    <frame name='base_link' attached_to='based_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+  </model>
+</sdf>
